@@ -1,9 +1,9 @@
 
 <p align="center">
-  <img src="https://graph.org/file/46b963ed1848758523c63.jpg" alt="Mr.KD BOTZZ LOGO">
+  <img src="https://graph.org/file/c062389046c346eb3f930.jpg" alt="SDBOTZZ LOGO">
 </p>
 <h1 align="center">
-  <b> NATALIYA_DYER</b>
+  <b> 𝙰𝚓𝚒 𝙼𝚘𝚟𝚒𝚎𝚜 𝙱𝚘𝚝</b>
 </h1>
 
 
