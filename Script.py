@@ -1,18 +1,14 @@
 class script(object):   
     HELP_TXT = """<b>ʜᴇʏ,{} ʜᴇʀᴇ ɪs ᴍʏ ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
 
-    ABOUT_TXT = """<b>╔════❰ ʙᴏᴛ ᴅᴇᴛᴀɪʟs ❱═❍⊱❁۪۪
-║╭━━━━━━━━━━━━━━━➣
-║┣⪼👑 ᴍʏ ɴᴀᴍᴇ : {}
-║┣⪼☎️ ᴄʀᴇᴀᴛᴏʀ : <a href=tg://settings>ᴛʜɪs ᴘᴇʀsᴏɴ</a>
-║┣⪼💡 ᴅᴇᴠᴏʟᴏᴘᴇʀ : <a href=https://t.me/SD_TG_OFFLINE>sᴅ_ᴏғғʟɪɴᴇ🇮🇳</a>
-║┣⪼📢 ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ
-║┣⪼✏️ ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 3
-║┣⪼📊 ᴅᴀᴛᴀ ʙᴀsᴇ : ᴍᴏɴɢᴏ-ᴅʙ
-║┣⪼⚙️ ʙᴏᴛ sᴇʀᴠᴇʀ : ᴀɴʏᴡʜᴇʀᴇ
-║┣⪼📈 ʙᴜɪʟᴅ sᴛᴀᴛᴜs :
-║╰━━━━━━━━━━━━━━━➣
-╚══════════════════❍⊱❁۪۪</b>"""
+    ABOUT_TXT = """<b>○𝙼𝚈 𝙽𝙰𝙼𝙴 : {}
+○𝙲𝚁𝙴𝙰𝚃𝙾𝚁 :<a href=tg://settings>𝚃𝙷𝙸𝚂 𝙿𝙴𝚁𝚂𝙾𝙽</a>
+○𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 : SD BOTZ
+○𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴 : 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
+○𝙻𝙸𝙱𝚁𝙰𝚁𝚈 : 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼 
+○𝚂𝙴𝚁𝚅𝙴𝚁 : 𝙰𝙽𝚈𝚆𝙷𝙴𝚁𝙴 
+○𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 : 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
+○𝚄𝙿𝙳𝙰𝚃𝙴𝚂 :<a href=https://t.me/cinema_flix_updates>𝙲𝙻𝙸𝙲𝙺 𝙷𝙴𝚁𝙴</a></b>"""
 
     SOURCE_TXT = """<b>⍟───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───⍟</b>
     
@@ -36,7 +32,7 @@ class script(object):
 <code>/batch https://t.me/+ZiDeeN9yubk5NDhl https://t.me/+ZiDeeN9yubk5NDhl</code>
 
 <b>ᴄʀᴇᴀᴛᴏʀ ➾ </b> <a href=tg://settings><b>ᴛʜɪs ᴘᴇʀsᴏɴ</b></a>
-<b>ᴅᴇᴠᴏʟᴏᴘᴇʀ ➾ </b> <a href=https://t.me/SD_TG_OFFLINE><b>sᴅ_ᴏғғʟɪɴᴇ🇮🇳</b></a>"""
+<b>ᴅᴇᴠᴏʟᴏᴘᴇʀ ➾ </b> <a href=https://t.me/cinema_flix_updates><b>Click Here</b></a>"""
     
     MANUELFILTER_TXT = """ʜᴇʟᴘ : <b>ғɪʟᴛᴇʀs</b>
 
@@ -89,7 +85,7 @@ class script(object):
 ‣ /get_template - ɢᴇᴛ ᴄᴜʀʀᴇɴᴛ ɪᴍᴅʙ ᴛᴇᴍᴘʟᴀᴛᴇ ᴏғ ᴀᴜᴛᴏ ғɪʟᴛᴇʀ
 
 <b>ᴄʀᴇᴀᴛᴏʀ ➾ </b> <a href=tg://settings><b>ᴛʜɪs ᴘᴇʀsᴏɴ</b></a>
-<b>ᴅᴇᴠᴏʟᴏᴘᴇʀ ➾ </b> <a href=https://t.me/SD_TG_OFFLINE><b>sᴅ_ᴏғғʟɪɴᴇ🇮🇳</b></a>"""
+<b>ᴅᴇᴠᴏʟᴏᴘᴇʀ ➾ </b> <a href=https://t.me/cinema_flix_updates><b>Click Here</b></a>"""
 
     CONNECTION_TXT = """ʜᴇʟᴘ : <b>ᴄᴏɴɴᴇᴄᴛɪᴏɴs</b>
 
