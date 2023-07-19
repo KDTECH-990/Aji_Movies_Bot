@@ -954,7 +954,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "about":
         buttons= [[
             InlineKeyboardButton('⌬ 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/cinema_flix_updates'),
-            InlineKeyboardButton('✇ 𝚂𝙾𝚄𝚁𝙲𝙴 ', callback_data='source')
+            InlineKeyboardButton('✇ 𝚂𝙾𝚄𝚁𝙲𝙴', callback_data='source')
             ],[
             InlineKeyboardButton('⟲ 𝙷𝙾𝙼𝙴', callback_data='start'),
             InlineKeyboardButton('𝙲𝙻𝙾𝚂𝙴 ✗', callback_data='close_data')
@@ -968,7 +968,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('‹‹𝙱𝙰𝙲𝙺', callback_data='start'),
-            InlineKeyboardButton('📞Cᴏɴᴛᴀᴄᴛ', url='https://t.me/MalluBlasters')
+            InlineKeyboardButton('☏𝙲𝙾𝙽𝚃𝙰𝙲𝚃', url='https://t.me/MalluBlasters')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1111,7 +1111,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
             btn = [[
                     InlineKeyboardButton("‹‹𝙱𝙰𝙲𝙺", callback_data="start"),
-                    InlineKeyboardButton("📞Cᴏɴᴛᴀᴄᴛ", url="https://t.me/MalluBlasters")
+                    InlineKeyboardButton("☏𝙲𝙾𝙽𝚃𝙰𝙲𝚃", url="https://t.me/MalluBlasters")
                   ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
@@ -1589,7 +1589,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"⊳[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
+                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1602,7 +1602,7 @@ async def auto_filter(client, msg, spoll=False):
                     callback_data=f'{pre}#{req}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
-                    text=f"⊳{get_size(file.file_size)}",
+                    text=f"{get_size(file.file_size)}",
                     callback_data=f'{pre}#{req}#{file.file_id}',
                 ),
             ]
@@ -1610,14 +1610,14 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🚧 {search} 🚧 ', 'dupe')
+            InlineKeyboardButton(f'🎪 {search} 🎪', 'dupe')
         ]
     )
     btn.insert(1,
         [ 
-            InlineKeyboardButton(f'Movies', 'minfo'),
-            InlineKeyboardButton(f'Info', 'info'),
-            InlineKeyboardButton(f"files: {len(btn)}", callback_data="files")
+            InlineKeyboardButton(f" Files: {len(btn)}", callback_data="files"),
+            InlineKeyboardButton(f' Tips', 'tinfo'),
+            InlineKeyboardButton(f' Info', 'minfo')
         ]
     )
     if offset != "":
@@ -1625,12 +1625,12 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"📜 ᴘᴀɢᴇ 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
-             InlineKeyboardButton(text="ɴᴇxᴛ▷", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"⎙𝗣𝗮𝗴𝗲 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
+             InlineKeyboardButton(text="𝗡𝗲𝘅𝘁⌦", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="╳ ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ ╳", callback_data="pages")]
+            [InlineKeyboardButton(text="❗️╳ 𝗡𝗼 𝗠𝗼𝗿𝗲 𝗣𝗮𝗴𝗲𝘀 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 ╳❗️", callback_data="pages")]
         )   
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -1669,16 +1669,16 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b><i>📟 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ</i></b> :- <b><i>{search}</i></b>\n<b><i>🕺 ʀᴇϙᴜᴇsᴛᴇᴅ ʙʏ</i></b> :- <b><i>{message.from_user.mention}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
+        cap = f"<b><i>Hey</i></b> 👋🏻 <b><i>{message.from_user.mention}</i></b>\n\n 🔖 <b><i>Title</i></b> : <b><i>{search}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=NOR_IMG, reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_photo(photo=imdb.get('poster'), reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(IMDB_DELET_TIME)
             await hehe.delete()       
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))             
+            await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))             
             await asyncio.sleep(IMDB_DELET_TIME)
             await hmm.delete()  
         except Exception as e:
@@ -1712,21 +1712,21 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
         search, files, offset, total_results = pmspoll
     pre = 'pmfilep' if PROTECT_CONTENT else 'pmfile'
     if SINGLE_BUTTON:
-        btn = [[InlineKeyboardButton(text=f"⊳[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}')] for file in files]
+        btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}')] for file in files]
     else:
         btn = [[InlineKeyboardButton(text=f"{file.file_name}", callback_data=f'{pre}#{file.file_id}',),
-              InlineKeyboardButton(text=f"⊳{get_size(file.file_size)}", callback_data=f'{pre}_#{file.file_id}')] for file in files ]             
+              InlineKeyboardButton(text=f"{get_size(file.file_size)}", callback_data=f'{pre}_#{file.file_id}')] for file in files ]             
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         PM_BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"📜 ᴘᴀɢᴇ 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
-            InlineKeyboardButton(text="ɴᴇxᴛ▷", callback_data=f"pmnext_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"⎙𝗣𝗮𝗴𝗲 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
+            InlineKeyboardButton(text="𝗡𝗲𝘅𝘁⌦", callback_data=f"pmnext_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs ᴀᴠᴀɪʟᴀʙʟᴇ", callback_data="pages")]
+            [InlineKeyboardButton(text="❗️╳ 𝗡𝗼 𝗠𝗼𝗿𝗲 𝗣𝗮𝗴𝗲𝘀 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 ╳❗️", callback_data="pages")]
         )
     imdb = await get_poster(search) if IMDB else None
     TEMPLATE = IMDB_TEMPLATE
@@ -1765,16 +1765,16 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             **locals()
         )
     else:
-        cap = f"<b><i>📟 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ</i></b> :- <b><i>{search}</i></b>\n<b><i>🕺 ʀᴇϙᴜᴇsᴛᴇᴅ ʙʏ</i></b> :- <b><i>{message.from_user.mention}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
+        cap = f"<b><i>Hey</i></b> 👋🏻 <b><i>{message.from_user.mention}</i></b>\n\n 🔖 <b><i>Title</i></b> : <b><i>{search}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(IMDB_DELET_TIME)
             await hehe.delete()          
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))      
+            await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))      
             await asyncio.sleep(IMDB_DELET_TIME)
             await hmm.delete()            
         except Exception as e:
