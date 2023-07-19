@@ -22,8 +22,8 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[           
-            InlineKeyboardButton('♚ 𝙂𝙧𝙤𝙪𝙥', url='https://t.me/CinemaShopLinkz'),
-            InlineKeyboardButton('⌬ 𝙐𝙥𝙙𝙖𝙩𝙚𝙨', url='https://t.me/+vP8QdSOL8BpjM2E1')
+            InlineKeyboardButton('♚ 𝙂𝙧𝙤𝙪𝙥', url='https://t.me/+iEbhY7mM4oE1OTVl'),
+            InlineKeyboardButton('⌬ 𝙐𝙥𝙙𝙖𝙩𝙚𝙨', url='https://t.me/cinema_flix_updates')
             ],[
             InlineKeyboardButton('〄 𝙃𝙚𝙡𝙥', url=f"https://t.me/{temp.U_NAME}?start=help")
             ]]
@@ -80,9 +80,9 @@ async def start(client, message):
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton(" ᴛʀʏ ᴀɢᴀɪɴ ♽", callback_data=f"{pre}#{file_id}")])
+                btn.append([InlineKeyboardButton(" 𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧 ♽", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton(" ᴛʀʏ ᴀɢᴀɪɴ ♽", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                btn.append([InlineKeyboardButton(" 𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧 ♽", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text=FORCE_SUB_TEXT,
