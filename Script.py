@@ -2,13 +2,13 @@ class script(object):
     HELP_TXT = """<b>ʜᴇʏ,{} ʜᴇʀᴇ ɪs ᴍʏ ʜᴇʟᴘ ᴄᴏᴍᴍᴀɴᴅs.</b>"""
 
     ABOUT_TXT = """<b>○𝙼𝚈 𝙽𝙰𝙼𝙴 : {}</b>
-○𝙲𝚁𝙴𝙰𝚃𝙾𝚁 :<a href=tg://settings><b>𝚃𝙷𝙸𝚂 𝙿𝙴𝚁𝚂𝙾𝙽</b></a>
+<b>○𝙲𝚁𝙴𝙰𝚃𝙾𝚁 :</b><a href=tg://settings><b>𝚃𝙷𝙸𝚂 𝙿𝙴𝚁𝚂𝙾𝙽</b></a>
 <b>○𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 : SD BOTZ</b>
 <b>○𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴 : 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹</b>
 <b>○𝙻𝙸𝙱𝚁𝙰𝚁𝚈 : 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼</b>
 <b>○𝚂𝙴𝚁𝚅𝙴𝚁 : 𝙰𝙽𝚈𝚆𝙷𝙴𝚁𝙴</b>
 <b>○𝙳𝙰𝚃𝙰𝙱𝙰𝚂𝙴 : 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱</b>
-<b>○𝚄𝙿𝙳𝙰𝚃𝙴𝚂 :<a href=https://t.me/cinema_flix_updates><b>𝙲𝙻𝙸𝙲𝙺 𝙷𝙴𝚁𝙴</b></a>"""
+<b>○𝚄𝙿𝙳𝙰𝚃𝙴𝚂 :</b><a href=https://t.me/cinema_flix_updates><b>𝙲𝙻𝙸𝙲𝙺 𝙷𝙴𝚁𝙴</b></a>"""
 
     SOURCE_TXT = """<b>ɴᴏᴛᴇ ➾</b>
     
