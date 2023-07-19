@@ -1672,13 +1672,13 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b><i>Hey</i></b> 👋🏻 <b><i>{message.from_user.mention}</i></b>\n\n 🔖 <b><i>Title</i></b> : <b><i>{search}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(IMDB_DELET_TIME)
             await hehe.delete()       
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            hmm = await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))             
+            hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))             
             await asyncio.sleep(IMDB_DELET_TIME)
             await hmm.delete()  
         except Exception as e:
@@ -1768,13 +1768,13 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
         cap = f"<b><i>Hey</i></b> 👋🏻 <b><i>{message.from_user.mention}</i></b>\n\n 🔖 <b><i>Title</i></b> : <b><i>{search}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(IMDB_DELET_TIME)
             await hehe.delete()          
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            hmm = await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))      
+            hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))      
             await asyncio.sleep(IMDB_DELET_TIME)
             await hmm.delete()            
         except Exception as e:
