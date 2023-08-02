@@ -1713,77 +1713,113 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
+    await query.answer(MSG_ALRT)
+
 
 async def auto_filter(client, msg, spoll=False):
+    reqstr1 = msg.from_user.id if msg.from_user else 0
+    reqstr = await client.get_users(reqstr1)
+    message = msg
+    key = f"{message.id}"
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
-        if 2 < len(message.text) < 100:
+        if len(message.text) < 100:
             search = message.text
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
+                    return await advantage_spell_chok(client, msg)
                 else:
-                    return
+                    if NO_RESULTS_MSG:
+                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+                        return
         else:
             return
     else:
-        settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-    pre = 'filep' if settings['file_secure'] else 'file'
-    req = message.from_user.id if message.from_user else 0
-    if settings["button"]:
-        btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{req}#{file.file_id}'
-                ),
-            ]
-            for file in files
-        ]
+        settings = await get_settings(message.chat.id)
+    if 'is_shortlink' in settings.keys():
+        ENABLE_SHORTLINK = settings['is_shortlink']
     else:
-        btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"{file.file_name}",
-                    callback_data=f'{pre}#{req}#{file.file_id}',
-                ),
-                InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}",
-                    callback_data=f'{pre}#{req}#{file.file_id}',
-                ),
+        await save_group_settings(message.chat.id, 'is_shortlink', False)
+        ENABLE_SHORTLINK = False
+    pre = 'filep' if settings['file_secure'] else 'file'
+    if ENABLE_SHORTLINK == True:
+        if settings["button"]:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
             ]
-            for file in files
-        ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}",
+                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
+    else:
+        if settings["button"]:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"♽ {get_size(file.file_size)} ♼ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"{file.file_name}",
+                        callback_data=f'{pre}#{file.file_id}',
+                    ),
+                    InlineKeyboardButton(
+                        text=f"{get_size(file.file_size)}",
+                        callback_data=f'{pre}#{file.file_id}',
+                    ),
+                ]
+                for file in files
+            ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f'🎪 {search} 🎪', 'dupe')
+            InlineKeyboardButton(f' 🎬 {search} 🎬 ', 'qinfo')
         ]
     )
-    btn.insert(1,
-        [ 
-            InlineKeyboardButton(f" Files: {len(btn)}", callback_data="files"),
-            InlineKeyboardButton(f' Tips', 'tinfo'),
-            InlineKeyboardButton(f' Info', 'minfo')
-        ]
+    btn.insert(1, 
+         [
+             InlineKeyboardButton("! Lᴀɴɢᴜᴀɢᴇs !", callback_data=f"select_lang#{message.from_user.id}")
+         ]
     )
+
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"⎙𝗣𝗮𝗴𝗲 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
-             InlineKeyboardButton(text="𝗡𝗲𝘅𝘁⌦", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"𝐏𝐀𝐆𝐄 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+             InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ⌦", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="❗️╳ 𝗡𝗼 𝗠𝗼𝗿𝗲 𝗣𝗮𝗴𝗲𝘀 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 ╳❗️", callback_data="pages")]
-        )   
+            [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄", callback_data="pages")]
+        )     
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
